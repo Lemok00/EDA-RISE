@@ -123,7 +123,7 @@ if __name__ == '__main__':
             secret_key = secret_keys[i * batch_size:(i + 1) * batch_size]
             encrypted_message = encrypted_messages[i * batch_size:(i + 1) * batch_size]
 
-            # synthesis a container image
+            # synthesise a container image
             secret_tensor = message_to_tensor(encrypted_message, sigma) \
                 .view(-1, ckpt_args.N, tensor_size, tensor_size).to(device)
             structure = structure_generator(secret_tensor)
