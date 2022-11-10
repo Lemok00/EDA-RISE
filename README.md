@@ -39,9 +39,9 @@ python test_accuracies_under_attacks.py --checkpoint_path <path of a downloaded 
 | ... | ...                        | ...          |
 | 63  | Shearing r = 10            | 0.9699296875 |
 
-+ Use `--save_result_dir` to change the path for saving .csv files.
++ Use `--save_result_dir` to change the directory for saving .csv files.
 ```shell
-python test_accuracies_under_attacks.py --checkpoint_path <path of a downloaded model> --save_result_dir <your saving path>
+python test_accuracies_under_attacks.py --checkpoint_path <path of a downloaded model> --save_result_dir <your saving directory>
 ```
 
 + Use `--use_tqdm` to show the evaluating progress through a bar.

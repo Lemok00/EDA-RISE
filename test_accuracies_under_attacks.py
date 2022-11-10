@@ -26,7 +26,6 @@ if __name__ == '__main__':
     parser.add_argument('--batch_size', type=int, default=1)
     parser.add_argument('--device', type=str, default='cuda')
     parser.add_argument('--use_tqdm', action='store_true')
-    parser.add_argument('--use_llcs', action='store_true')
     args = parser.parse_args()
 
     device = args.device
