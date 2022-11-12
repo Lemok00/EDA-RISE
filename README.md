@@ -54,4 +54,36 @@ python test_accuracies_under_attacks.py --checkpoint_path <path of a downloaded 
 python test_accuracies_under_attacks.py --checkpoint_path <path of a downloaded model> --test_num 10
 ```
 
+## Evaluating FID scores
+
+### 1. Synthesise container images
++ Synthesise container images using [synthesise_container_image_samples.py](./synthesise_container_image_samples.py).
+```shell
+python synthesise_container_image_samples.py checkpoint_path <path of a downloaded model>
+```
++ The synthesised images are save in `./synthesised_samples/` by default, or you can change the saving directory using `--save_result_dir`.
+```shell
+python synthesise_container_image_samples.py checkpoint_path <path of a downloaded model> --save_result_dir <your saving directory>
+```
++ You can also use `--use_tqdm` to show the synthesising progress.
+```shell
+python synthesise_container_image_samples.py checkpoint_path <path of a downloaded model> --use_tqdm
+```
+
+### 2. Calculate the FID score of synthesised images
++ Use [calculate_fid_score.py](./calculate_fid_score.py) to calculate the FID score for evaluation.
+```shell
+python calculate_fid_score.py <path of dataset statistics> <directory of synthesised images>
+```
++ We provide prepared dataset statistics in `./dataset_statistics/` for calculation. For example, you can evaluate the FID score of the pre-trained Bedroom N=1 model by using the prepared statistics of LSUN Bedroom dataset.
+```shell
+python calculate_fid_score.py ./synthesised_samples/synthesised_Bedroon_N=1_checkpoint_samples ./dataset_statistics/bedroom.npz
+```
++ Or you can prepare the dataset statistics by your self, using [prepare_dataset_statistical_features.py](./prepare_dataset_statistical_features.py).
+```shell
+python prepare_dataset_statistical_features.py --dataset_path <path of dataset> --dataset_type <type of dataset> --dataset_name <name of dataset>
+```
++ Our code support two types of datasets, including `official_lmdb` for lmdb datasets downloaded from LSUN, and `image_folder` for datasets consisting of folders.
++ The prepared dataset statistics will be saved as `./dataset_statistics/<dataset_name>.npz`.
+
 
