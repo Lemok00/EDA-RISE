@@ -8,10 +8,10 @@ This repo provides pre-trained networks of EDA-RISE for evaluation.
 
 ## Requirements
 + Only Linux is supported.
-+ Ninja >= 10.2, GCC/G++ >= 9.4.0
++ Ninja >= 1.10.2, GCC/G++ >= 9.4.0
 + One high-end NVIDIA GPU with at least 11GB of memory. We have done all testing using a NVIDIA RTX 2080Ti.
-+ Python >= 3.7 and PyTorch >= 1.6.0.
-+ CUDA toolkit 10.2 or later.
++ Python >= 3.7 and PyTorch >= 1.8.2.
++ CUDA toolkit 11.2 or later.
 + Python libraries: `pip install lmdb imutils opencv-python pandas tqdm`. We use the Anaconda3 2020.11 distribution which installs most of these by default.
 
 ## Download pre-trained models
